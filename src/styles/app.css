@@ -424,7 +424,7 @@ a {
 .total-amount small,
 .item-amount small {
   font-family: var(--font-body);
-  font-size: 0.45em;
+  font-size: max(0.45em, 1rem);
   font-weight: 700;
 }
 

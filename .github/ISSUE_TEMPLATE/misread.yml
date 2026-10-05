@@ -1,0 +1,22 @@
+name: Misread or wrong explanation
+description: The app read a number wrong, or explained a line in a way that doesn't fit.
+labels: [explanation]
+body:
+  - type: markdown
+    attributes:
+      value: Please do not upload a bill photo or paste your name, address or reference number. Type only the line labels and amounts that matter.
+  - type: input
+    id: company
+    attributes:
+      label: Electricity company
+      placeholder: e.g. LESCO
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What the bill says, and what the app showed
+      placeholder: |
+        Bill line "F.C Surcharge 762" was shown as ...
+    validations:
+      required: true
