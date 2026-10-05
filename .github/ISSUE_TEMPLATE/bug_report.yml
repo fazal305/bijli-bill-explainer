@@ -1,0 +1,28 @@
+name: Bug report
+description: Something in the app does not work as expected.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Upload a bill photo (please cover your name, address and reference number)
+        2. Wait for the explanation
+        3. ...
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and device
+      placeholder: e.g. Chrome 140 on a Samsung A15
+    validations:
+      required: true

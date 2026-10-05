@@ -1,0 +1,147 @@
+// tone decides the colour: usage = the electricity itself, tax = money on top
+// of it, adjust = can go either way, neutral = neither, credit = taken off.
+export const DICTIONARY = {
+  energy: {
+    title: 'بجلی کی قیمت',
+    english: 'Cost of Electricity',
+    body: 'جتنے یونٹ آپ نے استعمال کیے، اُن کی اصل قیمت۔ یونٹ جتنے زیادہ ہوں، فی یونٹ ریٹ بھی اتنا ہی اونچا لگتا ہے۔',
+    tone: 'usage',
+  },
+  fixed_charges: {
+    title: 'مقررہ چارجز',
+    english: 'Fixed Charges',
+    body: 'یہ رقم ہر مہینے دینی ہوتی ہے، چاہے بجلی کم جلے یا بالکل نہ جلے۔ یہ میٹر کے منظور شدہ لوڈ یا کنکشن کی قسم سے طے ہوتی ہے۔',
+    tone: 'neutral',
+  },
+  meter_rent: {
+    title: 'میٹر کا کرایہ',
+    english: 'Meter Rent',
+    body: 'میٹر اور سروس تار کا ماہانہ کرایہ۔ اس کا بجلی کے استعمال سے کوئی تعلق نہیں۔',
+    tone: 'neutral',
+  },
+  fpa: {
+    title: 'فیول ایڈجسٹمنٹ',
+    english: 'FPA · Fuel Price Adjustment',
+    body: 'کسی پچھلے مہینے بجلی بنانے کا تیل، گیس یا کوئلہ اندازے سے مہنگا پڑا تو وہ فرق اب آپ کے بل میں جوڑا گیا ہے۔ سستا پڑے تو یہ رقم منفی ہو کر واپس ملتی ہے۔',
+    tone: 'adjust',
+  },
+  qta: {
+    title: 'سہ ماہی ایڈجسٹمنٹ',
+    english: 'QTA / QTR · Quarterly Adjustment',
+    body: 'ہر تین مہینے بعد بجلی کمپنیوں کے خرچوں کا حساب برابر کیا جاتا ہے۔ کبھی یہ اضافی رقم ہوتی ہے اور کبھی کمی (منفی)۔',
+    tone: 'adjust',
+  },
+  fc_surcharge: {
+    title: 'قرضوں کا سرچارج',
+    english: 'FC Surcharge · Financing Cost',
+    body: 'بجلی کے محکموں نے بینکوں سے جو قرضے لیے ہیں، اُن کا سود چکانے کے لیے ہر یونٹ پر لگنے والی اضافی رقم۔',
+    tone: 'tax',
+  },
+  njs: {
+    title: 'نیلم جہلم سرچارج',
+    english: 'N.J. Surcharge',
+    body: 'نیلم جہلم پن بجلی منصوبے کی لاگت پوری کرنے کے لیے ہر یونٹ پر لگنے والی رقم۔',
+    tone: 'tax',
+  },
+  electricity_duty: {
+    title: 'صوبائی بجلی ڈیوٹی',
+    english: 'Electricity Duty',
+    body: 'صوبائی حکومت کا ٹیکس۔ یہ بجلی کی قیمت کے فیصد کے حساب سے لگتا ہے اور صوبائی حکومت کو جاتا ہے۔',
+    tone: 'tax',
+  },
+  gst: {
+    title: 'جنرل سیلز ٹیکس',
+    english: 'GST · General Sales Tax',
+    body: 'وفاقی حکومت کا سیلز ٹیکس، جو بجلی کی قیمت اور زیادہ تر دوسری رقموں کے اوپر الگ سے لگتا ہے۔',
+    tone: 'tax',
+  },
+  income_tax: {
+    title: 'انکم ٹیکس',
+    english: 'Income Tax',
+    body: 'بل کے ساتھ کاٹا جانے والا ایڈوانس انکم ٹیکس۔ یہ عموماً بڑے بلوں پر لگتا ہے، اور ٹیکس ریٹرن جمع کرانے والے اسے اپنے ٹیکس میں ایڈجسٹ کروا سکتے ہیں۔',
+    tone: 'tax',
+  },
+  extra_tax: {
+    title: 'ایکسٹرا ٹیکس',
+    english: 'Extra Tax',
+    body: 'سیلز ٹیکس میں رجسٹرڈ نہ ہونے والے کنکشنوں پر اضافی ٹیکس۔ زیادہ تر دکانوں اور کاروباری میٹروں پر لگتا ہے۔',
+    tone: 'tax',
+  },
+  further_tax: {
+    title: 'فردر ٹیکس',
+    english: 'Further Tax',
+    body: 'ٹیکس میں رجسٹرڈ نہ ہونے والے صارفین پر لگنے والا ایک اور اضافی سیلز ٹیکس۔',
+    tone: 'tax',
+  },
+  tv_fee: {
+    title: 'ٹی وی فیس',
+    english: 'PTV Fee',
+    body: 'سرکاری ٹی وی (پی ٹی وی) کی فیس، جو بجلی کے بل کے ساتھ وصول کی جاتی ہے۔',
+    tone: 'tax',
+  },
+  arrears: {
+    title: 'پچھلا بقایا',
+    english: 'Arrears',
+    body: 'پچھلے بلوں کی وہ رقم جو جمع نہیں ہوئی یا کم جمع ہوئی، اس بل میں جوڑ دی گئی ہے۔',
+    tone: 'neutral',
+  },
+  lps: {
+    title: 'دیر سے جمع کرانے کا جرمانہ',
+    english: 'LPS · Late Payment Surcharge',
+    body: 'پچھلا بل آخری تاریخ کے بعد جمع ہوا تو یہ جرمانہ لگا۔ بل وقت پر جمع کرائیں تو یہ نہیں لگتا۔',
+    tone: 'tax',
+  },
+  subsidy: {
+    title: 'حکومتی رعایت',
+    english: 'Subsidy / Relief',
+    body: 'حکومت کی طرف سے دی گئی رعایت۔ یہ رقم آپ کے بل سے کم کی گئی ہے۔',
+    tone: 'credit',
+  },
+  installment: {
+    title: 'قسط',
+    english: 'Installment / Deferred Amount',
+    body: 'کسی پرانی رقم کی قسط جو اس مہینے کے بل میں شامل کی گئی ہے۔',
+    tone: 'neutral',
+  },
+  other: {
+    title: 'دیگر رقم',
+    english: 'Other',
+    body: 'یہ لائن ہماری فہرست میں نہیں ہے۔ اصل بل پر اس کا نام دیکھیں، یا بجلی کمپنی کے دفتر سے پوچھیں۔',
+    tone: 'neutral',
+  },
+}
+
+export const GLOSSARY_ORDER = [
+  'energy',
+  'fpa',
+  'qta',
+  'fc_surcharge',
+  'electricity_duty',
+  'gst',
+  'fixed_charges',
+  'meter_rent',
+  'income_tax',
+  'extra_tax',
+  'further_tax',
+  'tv_fee',
+  'njs',
+  'arrears',
+  'lps',
+  'subsidy',
+  'installment',
+]
+
+export const COMPANY_NAMES = {
+  KE: 'کے الیکٹرک',
+  LESCO: 'لیسکو',
+  FESCO: 'فیسکو',
+  IESCO: 'آئیسکو',
+  PEPCO: 'پیپکو',
+  MEPCO: 'میپکو',
+  GEPCO: 'گیپکو',
+  HESCO: 'حیسکو',
+  SEPCO: 'سیپکو',
+  PESCO: 'پیسکو',
+  QESCO: 'کیسکو',
+  TESCO: 'ٹیسکو',
+}

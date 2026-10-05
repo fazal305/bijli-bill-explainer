@@ -1,0 +1,11 @@
+name: Feature idea
+description: Suggest an improvement.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: Idea
+      description: What would you like to see, and how would it help an older parent reading their electricity bill?
+    validations:
+      required: true
