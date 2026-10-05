@@ -1,4 +1,4 @@
-import { COMPANIES, ExtractionError, LINE_ITEM_KEYS } from './schema.js'
+import { COMPANIES, ExtractionError } from './schema.js'
 
 export const DEFAULT_BASE_URL = 'https://openrouter.ai/api/v1'
 export const DEFAULT_MODELS = ['qwen/qwen3.8-27b:free', 'google/gemma-4-31b-it:free']

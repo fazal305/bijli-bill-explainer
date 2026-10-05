@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://bijli-bill-explainer.vercel.app/sitemap.xml

@@ -30,3 +30,6 @@ dist-ssr
 /blob-report/
 
 .env*
+
+# Local tooling
+.claude

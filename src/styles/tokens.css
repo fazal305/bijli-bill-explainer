@@ -1,0 +1,39 @@
+:root {
+  /* Warm bill-paper page; green for the electricity itself, crimson for what
+     is charged on top of it (SRS 5). Every pair below meets WCAG AA. */
+  --paper: #f5f1e8;
+  --surface: #fffdf7;
+  --ink: #1d2622;
+  --ink-soft: #4d5852;
+  --rule: #ddd6c6;
+
+  --green: #1b5e43;
+  --green-deep: #134532;
+  --green-soft: #e4efe7;
+  --on-green: #ffffff;
+
+  --crimson: #b42318;
+  --crimson-soft: #fcebe9;
+
+  --amber-bg: #fff3d1;
+  --amber-rule: #d9a93a;
+  --amber-ink: #4a3500;
+
+  --focus: #0b3d91;
+
+  /* Atkinson Hyperlegible comes first only for Latin letters and digits (it has
+     no Arabic script), so amounts read clearly; Urdu falls through to Naskh for
+     running text and Nastaliq for headings. */
+  --font-body: 'Atkinson Hyperlegible', 'Noto Naskh Arabic Variable', 'Noto Naskh Arabic', Tahoma, sans-serif;
+  --font-display: 'Atkinson Hyperlegible', 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif;
+
+  --text: 1.25rem; /* 20px */
+  --text-lg: 1.5rem;
+  --text-xl: 2rem;
+  --text-hero: clamp(2rem, 7vw, 2.75rem);
+
+  --radius: 18px;
+  --gutter: 16px;
+  --tap: 64px;
+  --shadow: 0 1px 0 rgba(29, 38, 34, 0.05), 0 8px 24px rgba(29, 38, 34, 0.07);
+}

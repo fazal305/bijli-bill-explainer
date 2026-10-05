@@ -63,6 +63,7 @@ function units(value) {
 function text(value, max) {
   if (typeof value !== 'string') return null
   // Control and bidi-override characters have no place in a bill label.
+  // eslint-disable-next-line no-control-regex
   const clean = value.replace(/[\u0000-\u001f\u007f‪-‮⁦-⁩]/g, ' ').replace(/\s+/g, ' ').trim()
   return clean ? clean.slice(0, max) : null
 }
