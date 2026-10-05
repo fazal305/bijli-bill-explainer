@@ -30,6 +30,22 @@ const securityMeta = {
   ],
 }
 
+// The Urdu fonts change the height of the hero text, so loading them late shifts
+// the camera button down. Preloading the two Arabic-script files avoids that.
+const PRELOAD_FONTS = [/noto-nastaliq-urdu-arabic-700-normal-.*\.woff2$/, /noto-naskh-arabic-arabic-wght-normal-.*\.woff2$/]
+const preloadFonts = {
+  name: 'preload-fonts',
+  apply: 'build',
+  transformIndexHtml(html, ctx) {
+    const files = Object.keys(ctx.bundle || {}).filter((f) => PRELOAD_FONTS.some((re) => re.test(f)))
+    return files.map((f) => ({
+      tag: 'link',
+      attrs: { rel: 'preload', href: `/${f}`, as: 'font', type: 'font/woff2', crossorigin: '' },
+      injectTo: 'head',
+    }))
+  },
+}
+
 // Hashed asset names are only known after bundling, so the service worker's
 // precache list and cache version are written into dist/sw.js here.
 const swPrecache = {
@@ -83,7 +99,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), 'AI_')
   return {
     base: '/',
-    plugins: [react(), securityMeta, swPrecache, localApi(env)],
+    plugins: [react(), securityMeta, preloadFonts, swPrecache, localApi(env)],
     test: { include: ['src/**/*.test.js', 'api/**/*.test.js'] },
   }
 })
