@@ -8,11 +8,15 @@ import './styles/tokens.css'
 import './styles/app.css'
 import App from './App.jsx'
 import { current } from './hooks/useHashRoute.js'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 
 const root = document.getElementById('root')
 const app = (
   <StrictMode>
     <App />
+    <Analytics />
+    <SpeedInsights />
   </StrictMode>
 )
 
